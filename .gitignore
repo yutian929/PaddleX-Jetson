@@ -3,3 +3,4 @@ pipeline_test/*/resources/
 pipeline_test/*/output/
 pipeline_test/output/
 output/
+__pycache__

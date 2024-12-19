@@ -1,5 +1,5 @@
 # clear all resources downloaded before
-rm -r ./*/resources/*
+rm -rf ./*/resources/*
 
 # >>> ChatOCR >>>
 mkdir -p ChatOCR/resources/
