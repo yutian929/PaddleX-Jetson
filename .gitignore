@@ -1,0 +1,5 @@
+pipeline_test/ChatOCR/llm_params.txt
+pipeline_test/*/resources/
+pipeline_test/*/output/
+pipeline_test/output/
+output/
