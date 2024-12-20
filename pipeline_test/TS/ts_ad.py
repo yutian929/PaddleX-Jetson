@@ -1,7 +1,7 @@
 from paddlex import create_pipeline
 import os
 
-def test(device='gpu'):
+def test(device='cpu'):
     pipeline = create_pipeline(pipeline="ts_ad")
 
     output = pipeline.predict(os.path.dirname(os.path.realpath(__file__)) + "/resources/ts_ad.csv", device=device)

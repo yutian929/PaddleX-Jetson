@@ -41,10 +41,10 @@ if __name__ == '__main__':
 
     ## >>> CV >>>
     # test_anomaly_detection(device=settings["device"])
-    # test_face_recognition(device=settings["device"])
+    test_face_recognition(device=settings["device"])
     # test_image_classification(device=settings["device"])
     # test_instance_segmentation(device=settings["device"])
-    test_multi_label_image_classification(device=settings["device"])
+    # test_multi_label_image_classification(device=settings["device"])
     # test_object_detection(device=settings["device"])
     # test_pedestrain_attribute_recognition(device=settings["device"])
     # test_PP_ShiTuV2(device=settings["device"])

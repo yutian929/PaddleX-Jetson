@@ -1,7 +1,7 @@
 from paddlex import create_pipeline
 import os
 
-def test(device='gpu'):
+def test(device='cpu'):
     pipeline = create_pipeline(pipeline="PP-ShiTuV2")
 
     index_data = pipeline.build_index(gallery_imgs=os.path.dirname(os.path.realpath(__file__)) + "/resources/drink_dataset_v2.0/", gallery_label=os.path.dirname(os.path.realpath(__file__)) + "/resources/drink_dataset_v2.0/gallery.txt")

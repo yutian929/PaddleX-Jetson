@@ -1,7 +1,7 @@
 from paddlex import create_pipeline
 import os
 
-def test(device='gpu'):
+def test(device='cpu'):
     ak = os.getenv("AK")
     sk = os.getenv("SK")
     if not ak or not sk:
