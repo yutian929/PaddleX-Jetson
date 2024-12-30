@@ -18,10 +18,13 @@ from pipeline_test.OCR_.layout_parsing import test as test_layout_parsing
 from pipeline_test.OCR_.OCR import test as test_OCR
 from pipeline_test.OCR_.seal_recognition import test as test_seal_recognition
 from pipeline_test.OCR_.table_recognition import test as test_table_recognition
-## >>> TS >>>
+# >>> TS >>>
 from pipeline_test.TS.ts_ad import test as test_ts_ad
 from pipeline_test.TS.ts_cls import test as test_ts_cls
 from pipeline_test.TS.ts_fc import test as test_ts_fc
+# >>> Process >>
+from multiprocessing import Process
+
 
 def settings_log(settings:dict):
     print(f"* FILE: {__file__}")
@@ -32,44 +35,40 @@ def settings_log(settings:dict):
         print(f"# {key}:\t{val}")
 
 if __name__ == '__main__':
-    ## gloabl settings
+    # gloabl settings
     settings = {"device":'gpu'}
-    
-    ## >>> ChatOCR >>>
-    # test_PP_ChatOCRv3_doc(settings)
+    test_fucs = [
+        ## >>> ChatOCR >>>
+        test_PP_ChatOCRv3_doc,
 
-    ## >>> CV >>>
-    settings_log(settings)
-    test_anomaly_detection(settings)
-    settings_log(settings)
-    test_face_recognition(settings)
-    settings_log(settings)
-    test_image_classification(settings)
-    settings_log(settings)
-    test_instance_segmentation(settings)
-    settings_log(settings)
-    test_multi_label_image_classification(settings)
-    settings_log(settings)
-    test_object_detection(settings)
-    settings_log(settings)
-    test_pedestrain_attribute_recognition(settings)
-    settings_log(settings)
-    test_PP_ShiTuV2(settings)
-    settings_log(settings)
-    test_semantic_segmentation(settings)
-    settings_log(settings)
-    test_small_object_detection(settings)
-    settings_log(settings)
-    test_vehicle_attribute_recognition(settings)
+        ## >>> CV >>>
+        test_anomaly_detection,
+        test_face_recognition,
+        test_image_classification,
+        test_instance_segmentation,
+        test_multi_label_image_classification,
+        test_object_detection,
+        test_pedestrain_attribute_recognition,
+        test_PP_ShiTuV2,
+        test_semantic_segmentation,
+        test_small_object_detection,
+        test_vehicle_attribute_recognition,
 
-    # ## >>> OCR_ >>>
-    # test_formula_recognition(settings)
-    # test_layout_parsing(settings)
-    # test_OCR(settings)
-    # test_seal_recognition(settings)
-    # test_table_recognition(settings)
-    
-    # ## >>> TS >>>
-    # test_ts_ad(settings)
-    # test_ts_cls(settings)
-    # test_ts_fc(settings)
+        ## >>> OCR_ >>>
+        test_formula_recognition,
+        test_layout_parsing,
+        test_OCR,
+        test_seal_recognition,
+        test_table_recognition,
+        
+        ## >>> TS >>>
+        test_ts_ad,
+        test_ts_cls,
+        test_ts_fc,
+        ]
+
+    # main
+    for test_fuc in test_fucs:
+        p = Process(target=test_fuc, args=(settings,))
+        p.start()
+        p.join()
