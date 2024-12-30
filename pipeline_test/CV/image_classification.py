@@ -1,8 +1,8 @@
 from paddlex import create_pipeline
 import os
 
-def test(device='cpu'):
-    pipeline = create_pipeline(pipeline="image_classification", device=device)
+def test(settings=None):
+    pipeline = create_pipeline(pipeline="image_classification", device=settings['device'])
 
     output = pipeline.predict(os.path.dirname(os.path.realpath(__file__)) + "/resources/general_image_classification_001.jpg")
     for res in output:

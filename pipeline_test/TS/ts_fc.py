@@ -1,8 +1,8 @@
 from paddlex import create_pipeline
 import os
 
-def test(device='cpu'):
-    pipeline = create_pipeline(pipeline="ts_fc", device=device)
+def test(settings=None):
+    pipeline = create_pipeline(pipeline="ts_fc", device=settings['device'])
 
     output = pipeline.predict(os.path.dirname(os.path.realpath(__file__)) + "/resources/ts_fc.csv")
     for res in output:

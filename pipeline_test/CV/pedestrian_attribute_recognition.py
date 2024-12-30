@@ -1,8 +1,8 @@
 from paddlex import create_pipeline
 import os
 
-def test(device='cpu'):
-    pipeline = create_pipeline(pipeline="pedestrian_attribute_recognition", device=device)
+def test(settings=None):
+    pipeline = create_pipeline(pipeline="pedestrian_attribute_recognition", device=settings['device'])
 
     output = pipeline.predict(os.path.dirname(os.path.realpath(__file__)) + "/resources/pedestrian_attribute_002.jpg")
     for res in output:

@@ -34,32 +34,42 @@ def settings_log(settings:dict):
 if __name__ == '__main__':
     ## gloabl settings
     settings = {"device":'gpu'}
-    settings_log(settings)
     
     ## >>> ChatOCR >>>
-    # test_PP_ChatOCRv3_doc(device=settings["device"])
+    # test_PP_ChatOCRv3_doc(settings)
 
     ## >>> CV >>>
-    # test_anomaly_detection(device=settings["device"])
-    test_face_recognition(device=settings["device"])
-    # test_image_classification(device=settings["device"])
-    # test_instance_segmentation(device=settings["device"])
-    # test_multi_label_image_classification(device=settings["device"])
-    # test_object_detection(device=settings["device"])
-    # test_pedestrain_attribute_recognition(device=settings["device"])
-    # test_PP_ShiTuV2(device=settings["device"])
-    # test_semantic_segmentation(device=settings["device"])
-    # test_small_object_detection(device=settings["device"])
-    # test_vehicle_attribute_recognition(device=settings["device"])
+    settings_log(settings)
+    test_anomaly_detection(settings)
+    settings_log(settings)
+    test_face_recognition(settings)
+    settings_log(settings)
+    test_image_classification(settings)
+    settings_log(settings)
+    test_instance_segmentation(settings)
+    settings_log(settings)
+    test_multi_label_image_classification(settings)
+    settings_log(settings)
+    test_object_detection(settings)
+    settings_log(settings)
+    test_pedestrain_attribute_recognition(settings)
+    settings_log(settings)
+    test_PP_ShiTuV2(settings)
+    settings_log(settings)
+    test_semantic_segmentation(settings)
+    settings_log(settings)
+    test_small_object_detection(settings)
+    settings_log(settings)
+    test_vehicle_attribute_recognition(settings)
 
     # ## >>> OCR_ >>>
-    # test_formula_recognition(device=settings["device"])
-    # test_layout_parsing(device=settings["device"])
-    # test_OCR(device=settings["device"])
-    # test_seal_recognition(device=settings["device"])
-    # test_table_recognition(device=settings["device"])
+    # test_formula_recognition(settings)
+    # test_layout_parsing(settings)
+    # test_OCR(settings)
+    # test_seal_recognition(settings)
+    # test_table_recognition(settings)
     
     # ## >>> TS >>>
-    # test_ts_ad(device=settings["device"])
-    # test_ts_cls(device=settings["device"])
-    # test_ts_fc(device=settings["device"])
+    # test_ts_ad(settings)
+    # test_ts_cls(settings)
+    # test_ts_fc(settings)

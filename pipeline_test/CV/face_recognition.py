@@ -1,8 +1,8 @@
 from paddlex import create_pipeline
 import os
 
-def test(device='cpu'):
-    pipeline = create_pipeline(pipeline="face_recognition", device=device)
+def test(settings=None):
+    pipeline = create_pipeline(pipeline="face_recognition", device=settings['device'])
 
     index_data = pipeline.build_index(gallery_imgs=os.path.dirname(os.path.realpath(__file__)) + "/resources/face_demo_gallery", gallery_label=os.path.dirname(os.path.realpath(__file__)) + "/resources/face_demo_gallery/gallery.txt")
     os.makedirs("./output/face_demo_gallery", exist_ok=True)

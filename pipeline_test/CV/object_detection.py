@@ -1,8 +1,8 @@
 from paddlex import create_pipeline
 import os
 
-def test(device='cpu'):
-    pipeline = create_pipeline(pipeline="object_detection", device=device)
+def test(settings=None):
+    pipeline = create_pipeline(pipeline="object_detection", device=settings['device'])
 
     output = pipeline.predict(os.path.dirname(os.path.realpath(__file__)) + "/resources/general_object_detection_002.png")
     for res in output:

@@ -1,8 +1,8 @@
 from paddlex import create_pipeline
 import os
 
-def test(device='cpu'):
-    pipeline = create_pipeline(pipeline="table_recognition", device=device)
+def test(settings=None):
+    pipeline = create_pipeline(pipeline="table_recognition", device=settings['device'])
 
     output = pipeline.predict(os.path.dirname(os.path.realpath(__file__)) + "/resources/table_recognition.jpg")
     for res in output:
