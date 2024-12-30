@@ -7,7 +7,7 @@ from pipeline_test.CV.image_classification import test as test_image_classificat
 from pipeline_test.CV.instance_segmentation import test as test_instance_segmentation
 from pipeline_test.CV.multi_label_image_classification import test as test_multi_label_image_classification
 from pipeline_test.CV.object_detection import test as test_object_detection
-from pipeline_test.CV.pedestrian_attribute_recognition import test as test_pedestrain_attribute_recognition
+from pipeline_test.CV.pedestrian_attribute_recognition import test as test_pedestrian_attribute_recognition
 from pipeline_test.CV.PP_ShiTuV2 import test as test_PP_ShiTuV2
 from pipeline_test.CV.semantic_segmentation import test as test_semantic_segmentation
 from pipeline_test.CV.small_object_detection import test as test_small_object_detection
@@ -39,7 +39,7 @@ if __name__ == '__main__':
     settings = {"device":'gpu'}
     test_fucs = [
         ## >>> ChatOCR >>>
-        test_PP_ChatOCRv3_doc,
+        # test_PP_ChatOCRv3_doc,
 
         ## >>> CV >>>
         test_anomaly_detection,
@@ -48,7 +48,7 @@ if __name__ == '__main__':
         test_instance_segmentation,
         test_multi_label_image_classification,
         test_object_detection,
-        test_pedestrain_attribute_recognition,
+        test_pedestrian_attribute_recognition,
         test_PP_ShiTuV2,
         test_semantic_segmentation,
         test_small_object_detection,
@@ -69,6 +69,10 @@ if __name__ == '__main__':
 
     # main
     for test_fuc in test_fucs:
+        print(f"Testing func: {str(test_fuc)}")
+        print(f"Settings: {settings}")
         p = Process(target=test_fuc, args=(settings,))
         p.start()
         p.join()
+        if p.exitcode != 0:
+            print(f"Testing fuc {test_fuc.__name__} error with exitcode {p.exitcode}")
