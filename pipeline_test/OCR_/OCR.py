@@ -1,5 +1,6 @@
 from paddlex import create_pipeline
 import os
+import gc
 
 def test(settings=None):
     pipeline = create_pipeline(pipeline="OCR", device=settings['device'])
@@ -9,6 +10,9 @@ def test(settings=None):
         res.print()
         res.save_to_img("./output/")
 
+
+    del pipeline
+    gc.collect()
 
 if __name__ == "__main__":
     test()

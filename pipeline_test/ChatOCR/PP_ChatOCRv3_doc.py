@@ -1,5 +1,6 @@
 from paddlex import create_pipeline
 import os
+import gc
 
 def test(settings=None):
     ak = os.getenv("AK")
@@ -29,6 +30,9 @@ def test(settings=None):
         vector=vector,
         )
     chat_result.print()
+
+    del pipeline
+    gc.collect()
 
 if __name__ == "__main__":
     test()

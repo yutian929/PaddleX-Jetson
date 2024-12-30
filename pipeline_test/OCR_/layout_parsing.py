@@ -1,5 +1,6 @@
 from paddlex import create_pipeline
 import os
+import gc
 
 def test(settings=None):
     pipeline = create_pipeline(pipeline="layout_parsing", device=settings['device'])
@@ -11,6 +12,9 @@ def test(settings=None):
         res.save_to_xlsx("./output/") ## 保存表格格式结果
         res.save_to_html("./output/") ## 保存html结果
 
+
+    del pipeline
+    gc.collect()
 
 if __name__ == "__main__":
     test()

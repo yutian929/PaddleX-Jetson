@@ -26,7 +26,7 @@ from pipeline_test.TS.ts_fc import test as test_ts_fc
 def settings_log(settings:dict):
     print(f"* FILE: {__file__}")
     print(f"* AUTHOR: yutian929")
-    print(f"* NOTES: 2024-12-19 v1")
+    print(f"* NOTES: 2024-12-30 v2")
     print("* settings:")
     for key, val in settings.items():
         print(f"# {key}:\t{val}")
